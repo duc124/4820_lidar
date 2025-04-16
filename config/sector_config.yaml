@@ -1,0 +1,13 @@
+sector_definitions:
+  front:
+    start: 330
+    end: 30
+  right:
+    start: 30
+    end: 90
+  left:
+    start: 270
+    end: 330
+  back:
+    start: 90
+    end: 270

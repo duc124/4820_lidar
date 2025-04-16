@@ -23,6 +23,7 @@ find_package(ament_cmake REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
   # the following line skips the linter which checks for copyrights
   # uncomment the line when a copyright and license is not present in all source files
   #set(ament_cmake_copyright_FOUND TRUE)
@@ -30,11 +31,21 @@ if(BUILD_TESTING)
   # uncomment the line when this package is not in a git repo
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+  ament_python_install_package(articubot_one)
+
 endif()
 
-install(
-  DIRECTORY config description launch worlds
+install(DIRECTORY
+  launch
+  description
+  config
+  worlds
   DESTINATION share/${PROJECT_NAME}
 )
+install(PROGRAMS
+  articubot_one/lidar_self_driving.py
+  DESTINATION lib/articubot_one
+)
+
 
 ament_package()

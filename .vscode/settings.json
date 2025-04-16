@@ -1,0 +1,21 @@
+{
+  "python.autoComplete.extraPaths": [
+    "/home/pi5/turtlebot3_ws/build/turtlebot3_teleop",
+    "/home/pi5/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages",
+    "/home/pi5/turtlebot3_ws/build/turtlebot3_example",
+    "/home/pi5/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages",
+    "/home/pi5/ros2_ws/build/my_slam_project",
+    "/home/pi5/ros2_ws/install/my_slam_project/lib/python3.12/site-packages",
+    "/opt/ros/jazzy/lib/python3.12/site-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/home/pi5/turtlebot3_ws/build/turtlebot3_teleop",
+    "/home/pi5/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.12/site-packages",
+    "/home/pi5/turtlebot3_ws/build/turtlebot3_example",
+    "/home/pi5/turtlebot3_ws/install/turtlebot3_example/lib/python3.12/site-packages",
+    "/home/pi5/ros2_ws/build/my_slam_project",
+    "/home/pi5/ros2_ws/install/my_slam_project/lib/python3.12/site-packages",
+    "/opt/ros/jazzy/lib/python3.12/site-packages"
+  ],
+  "ros.distro": "jazzy"
+}

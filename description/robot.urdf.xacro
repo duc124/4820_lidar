@@ -1,21 +1,39 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
-
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+    <!-- Arguments -->
     <xacro:arg name="use_ros2_control" default="true"/>
     <xacro:arg name="sim_mode" default="false"/>
 
-    <xacro:include filename="robot_core.xacro" />
+    <!-- Global Properties (moved from robot_core.xacro) -->
+    <xacro:property name="chassis_length" value="0.45"/>
+    <xacro:property name="chassis_width" value="0.45"/>
+    <xacro:property name="chassis_height" value="0.006"/>
+    <xacro:property name="pole_height" value="0.126"/>
+    <xacro:property name="chassis_mass" value="1.0"/>
+    <xacro:property name="wheel_radius" value="0.0762"/>
+    <xacro:property name="wheel_thickness" value="0.03175"/>
+    <xacro:property name="wheel_mass" value="0.05"/>
+    <xacro:property name="wheel_offset_y" value="0.205"/>
+    <xacro:property name="caster_wheel_radius" value="0.035"/>
+    <xacro:property name="caster_sphere_radius" value="0.085"/>
+    <xacro:property name="caster_wheel_mass" value="0.01"/>
 
+    <!-- Include Macros -->
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <!-- Robot Structure -->
+    <xacro:include filename="robot_core.xacro"/>
+
+    <!-- Sensors and Features -->
+    <xacro:include filename="lidar.xacro"/>
+    <xacro:include filename="camera.xacro"/>
+    <!-- Uncomment if needed: <xacro:include filename="depth_camera.xacro"/> -->
+
+    <!-- Control -->
     <xacro:if value="$(arg use_ros2_control)">
-        <xacro:include filename="ros2_control.xacro" />
+        <xacro:include filename="ros2_control.xacro"/>
     </xacro:if>
     <xacro:unless value="$(arg use_ros2_control)">
-        <xacro:include filename="gazebo_control.xacro" />
+        <xacro:include filename="gazebo_control.xacro"/>
     </xacro:unless>
-    <xacro:include filename="lidar.xacro" />
-    <xacro:include filename="camera.xacro" />
-    <!-- <xacro:include filename="depth_camera.xacro" /> -->
-
-    <xacro:include filename="face.xacro" />
-    
 </robot>
